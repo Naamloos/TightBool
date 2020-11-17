@@ -28,5 +28,14 @@ if(EightBools[1])
 var EightMoreBools = new TightBool(val3: true, val7: true);
 ```
 
+## ✅ TODO
+- [x] Byte based TightBool (8 bits)
+- [ ] Short based TightBool (16 bits)
+- [ ] Int based TightBool (32 bits)
+- [ ] Long based TightBool (64 bits)
+- [ ] Flexible length TightBool (n bits)
+
+For the last type of TightBool, the amount of bits will be flexible in pairs of 8. This will only safe memory when a lot of values are used. For smaller sets of booleans the previous types are recommended to be used.
+
 ## 😂 What was the meme?
 ![The meme](https://i.redd.it/8ceh0d66fdz51.jpg)
