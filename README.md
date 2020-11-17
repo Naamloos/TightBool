@@ -36,7 +36,5 @@ Here TightBool is interchangeable with other TightBool-related types. Here's a t
 | IntTightBool   | 32                 | int (32 bits)      |
 | LongTightBool  | 64                 | long (64 bits)     |
 
-For the last type of TightBool, the amount of bits will be flexible in pairs of 8. This will only save memory when a lot of values are used. For smaller sets of booleans the previous types are recommended to be used.
-
 ## 😂 What was the meme?
 ![The meme](https://i.redd.it/8ceh0d66fdz51.jpg)
