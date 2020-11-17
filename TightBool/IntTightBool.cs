@@ -5,50 +5,28 @@ using System.Text;
 namespace Naamloos
 {
     /// <summary>
-    /// A Struct that tries to store 8 true/false values in a single byte.
+    /// A Struct that tries to store 32 true/false values in a single int.
     /// </summary>
     public struct IntTightBool
     {
         private int storage;
 
         /// <summary>
-        /// Constructor with preset values.
+        /// Makes a new IntTightBool with preset values.
         /// </summary>
-        /// <param name="val0">First value.</param>
-        /// <param name="val1">Second value.</param>
-        /// <param name="val2">Third value.</param>
-        /// <param name="val3">Fourth value.</param>
-        /// <param name="val4">Fifth value.</param>
-        /// <param name="val5">Sixth value.</param>
-        /// <param name="val6">Seventh value.</param>
-        /// <param name="val7">Eighth value.</param>
-        public IntTightBool(bool val0 = false, bool val1 = false,
-            bool val2 = false, bool val3 = false, 
-            bool val4 = false, bool val5 = false, 
-            bool val6 = false, bool val7 = false)
+        /// <param name="trueindices">Indices for values that should be true.</param>
+        public IntTightBool(params int[] trueindices)
         {
-            storage = 0;
+            this.storage = 0;
 
-            if (val0)
-                this[0] = true;
-            if (val1)
-                this[1] = true;
-            if (val2)
-                this[2] = true;
-            if (val3)
-                this[3] = true;
-            if (val4)
-                this[4] = true;
-            if (val5)
-                this[5] = true;
-            if (val6)
-                this[6] = true;
-            if (val7)
-                this[7] = true;
+            foreach (var val in trueindices)
+            {
+                this[val] = true;
+            }
         }
 
         /// <summary>
-        /// Creates a TightBool with preset storage.
+        /// Creates a IntTightBool with preset storage.
         /// </summary>
         /// <param name="other">Preset storage.</param>
         public IntTightBool(int other)
@@ -57,7 +35,7 @@ namespace Naamloos
         }
 
         /// <summary>
-        /// Gets a value from this TightBool
+        /// Gets a value from this IntTightBool
         /// </summary>
         /// <param name="index">index to get value for.</param>
         /// <returns>Boolean value.</returns>
@@ -116,6 +94,10 @@ namespace Naamloos
         {
             // Equals should compare based on the underlying storage byte.
             return obj.Equals(storage);
+        }
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
         }
     }
 }

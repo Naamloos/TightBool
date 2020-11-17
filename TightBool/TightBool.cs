@@ -12,39 +12,17 @@ namespace Naamloos
         private byte storage;
 
         /// <summary>
-        /// Constructor with preset values.
+        /// Makes a new TightBool with preset values.
         /// </summary>
-        /// <param name="val0">First value.</param>
-        /// <param name="val1">Second value.</param>
-        /// <param name="val2">Third value.</param>
-        /// <param name="val3">Fourth value.</param>
-        /// <param name="val4">Fifth value.</param>
-        /// <param name="val5">Sixth value.</param>
-        /// <param name="val6">Seventh value.</param>
-        /// <param name="val7">Eighth value.</param>
-        public TightBool(bool val0 = false, bool val1 = false,
-            bool val2 = false, bool val3 = false, 
-            bool val4 = false, bool val5 = false, 
-            bool val6 = false, bool val7 = false)
+        /// <param name="trueindices">Indices for values that should be true.</param>
+        public TightBool(params int[] trueindices)
         {
-            storage = 0;
+            this.storage = 0;
 
-            if (val0)
-                this[0] = true;
-            if (val1)
-                this[1] = true;
-            if (val2)
-                this[2] = true;
-            if (val3)
-                this[3] = true;
-            if (val4)
-                this[4] = true;
-            if (val5)
-                this[5] = true;
-            if (val6)
-                this[6] = true;
-            if (val7)
-                this[7] = true;
+            foreach (var val in trueindices)
+            {
+                this[val] = true;
+            }
         }
 
         /// <summary>
@@ -116,6 +94,11 @@ namespace Naamloos
         {
             // Equals should compare based on the underlying storage byte.
             return obj.Equals(storage);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
         }
     }
 }
