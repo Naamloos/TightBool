@@ -28,11 +28,19 @@ if(EightBools[1])
 var EightMoreBools = new TightBool(val3: true, val7: true);
 ```
 
+Here TightBool is interchangeable with other TightBool-related types. Here's a table listing all of them.
+| Type           | Amount of booleans | Underlying storage |
+|----------------|--------------------|--------------------|
+| TightBool      | 8                  | byte (8 bits)      |
+| ShortTightBool | 16                 | short (16 bits)    |
+| IntTightBool   | 32                 | int (32 bits)      |
+| LongTightBool  | 64                 | long (64 bits)     |
+
 ## ✅ TODO
 - [x] Byte based TightBool (8 bits)
-- [ ] Short based TightBool (16 bits)
-- [ ] Int based TightBool (32 bits)
-- [ ] Long based TightBool (64 bits)
+- [x] Short based TightBool (16 bits)
+- [x] Int based TightBool (32 bits)
+- [x] Long based TightBool (64 bits)
 - [ ] Flexible length TightBool (n bits)
 
 For the last type of TightBool, the amount of bits will be flexible in pairs of 8. This will only save memory when a lot of values are used. For smaller sets of booleans the previous types are recommended to be used.
