@@ -7,7 +7,7 @@ Realistically, you wouldn't have to use this. It's just me experimenting whether
 ## 🤔 Why did you make this?
 A meme was shared on Discord about a boolean actually using a byte to store data. It means 7 bits are actually unused. I was curious whether I could make something that would assign a single bit per boolean. I could, but really it didn't come with any big benefits.
 
-## Usage
+## ✏ Usage
 ```cs
 // Creating a new TightBool.
 var EightBools = new TightBool();
