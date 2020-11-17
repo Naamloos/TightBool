@@ -6,12 +6,10 @@ namespace TightBoolTests
     [TestClass]
     public class Tests
     {
-        public TightBool mybool;
-
         [TestMethod]
         public void TestValues()
         {
-            mybool = new TightBool();
+            TightBool mybool = new TightBool();
 
             Assert.IsFalse(mybool[0]);
             Assert.IsFalse(mybool[1]);
@@ -54,16 +52,24 @@ namespace TightBoolTests
             Assert.IsFalse(mybool[5]);
             Assert.IsFalse(mybool[6]);
             Assert.IsFalse(mybool[7]);
+
+            LongTightBool myLongBool = new LongTightBool();
+
+            Assert.IsFalse(myLongBool[60]);
+
+            myLongBool[60] = true;
+
+            Assert.IsTrue(myLongBool[60]);
         }
 
         [TestMethod]
         public void TestToString()
         {
-            mybool = new TightBool();
+            TightBool mybool = new TightBool();
 
             mybool[2] = true;
 
-            string expectedstring = "0:False,1:False,2:True,3:False,4:False,5:False,6:False,7:False";
+            string expectedstring = "0:False 1:False 2:True 3:False 4:False 5:False 6:False 7:False";
 
             Assert.AreEqual(expectedstring, mybool.ToString());
         }

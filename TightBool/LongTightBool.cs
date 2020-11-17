@@ -42,7 +42,7 @@ namespace Naamloos
         public bool this[int index]
         {
             // Simple bit check
-            get => (storage & (1 << index)) != 0;
+            get => (storage & ((long)1 << index)) != 0;
             set
             {
                 // Make bit mask
