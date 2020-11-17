@@ -7,9 +7,9 @@ namespace Naamloos
     /// <summary>
     /// A Struct that tries to store 8 true/false values in a single byte.
     /// </summary>
-    public struct TightBool
+    public struct ShortTightBool
     {
-        private byte storage;
+        private short storage;
 
         /// <summary>
         /// Constructor with preset values.
@@ -22,7 +22,7 @@ namespace Naamloos
         /// <param name="val5">Sixth value.</param>
         /// <param name="val6">Seventh value.</param>
         /// <param name="val7">Eighth value.</param>
-        public TightBool(bool val0 = false, bool val1 = false,
+        public ShortTightBool(bool val0 = false, bool val1 = false,
             bool val2 = false, bool val3 = false, 
             bool val4 = false, bool val5 = false, 
             bool val6 = false, bool val7 = false)
@@ -51,7 +51,7 @@ namespace Naamloos
         /// Creates a TightBool with preset storage.
         /// </summary>
         /// <param name="other">Preset storage.</param>
-        public TightBool(byte other)
+        public ShortTightBool(short other)
         {
             this.storage = other;
         }
@@ -68,9 +68,9 @@ namespace Naamloos
             set
             {
                 // Make bit mask
-                byte mask = (byte)(1 << index);
+                short mask = (short)(1 << index);
                 // Disable/Enable bit based on bit mask and value of setter
-                storage = (byte)(value? (storage | mask) : (storage & (~mask)));
+                storage = (short)(value? (storage | mask) : (storage & (~mask)));
             }
         }
 
@@ -84,7 +84,7 @@ namespace Naamloos
         /// Gets the current storage.
         /// </summary>
         /// <returns>Current storage.</returns>
-        public byte GetStorage() => this.storage;
+        public short GetStorage() => this.storage;
 
         /// <summary>
         /// Gets a value at an index.
@@ -104,7 +104,7 @@ namespace Naamloos
         {
             StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 16; i++)
             {
                 sb.Append($"{i}:{this[i]} ");
             }

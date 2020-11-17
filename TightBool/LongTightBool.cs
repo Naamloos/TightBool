@@ -7,9 +7,9 @@ namespace Naamloos
     /// <summary>
     /// A Struct that tries to store 8 true/false values in a single byte.
     /// </summary>
-    public struct TightBool
+    public struct LongTightBool
     {
-        private byte storage;
+        private long storage;
 
         /// <summary>
         /// Constructor with preset values.
@@ -22,9 +22,9 @@ namespace Naamloos
         /// <param name="val5">Sixth value.</param>
         /// <param name="val6">Seventh value.</param>
         /// <param name="val7">Eighth value.</param>
-        public TightBool(bool val0 = false, bool val1 = false,
-            bool val2 = false, bool val3 = false, 
-            bool val4 = false, bool val5 = false, 
+        public LongTightBool(bool val0 = false, bool val1 = false,
+            bool val2 = false, bool val3 = false,
+            bool val4 = false, bool val5 = false,
             bool val6 = false, bool val7 = false)
         {
             storage = 0;
@@ -51,7 +51,7 @@ namespace Naamloos
         /// Creates a TightBool with preset storage.
         /// </summary>
         /// <param name="other">Preset storage.</param>
-        public TightBool(byte other)
+        public LongTightBool(long other)
         {
             this.storage = other;
         }
@@ -68,9 +68,9 @@ namespace Naamloos
             set
             {
                 // Make bit mask
-                byte mask = (byte)(1 << index);
+                long mask = ((long)1 << index);
                 // Disable/Enable bit based on bit mask and value of setter
-                storage = (byte)(value? (storage | mask) : (storage & (~mask)));
+                storage = (value ? (storage | mask) : (storage & (~mask)));
             }
         }
 
@@ -78,13 +78,13 @@ namespace Naamloos
         /// Sets the current storage.
         /// </summary>
         /// <param name="storage">New storage.</param>
-        public void SetStorage(byte storage) => this.storage = storage;
+        public void SetStorage(long storage) => this.storage = storage;
 
         /// <summary>
         /// Gets the current storage.
         /// </summary>
         /// <returns>Current storage.</returns>
-        public byte GetStorage() => this.storage;
+        public long GetStorage() => this.storage;
 
         /// <summary>
         /// Gets a value at an index.
@@ -104,7 +104,7 @@ namespace Naamloos
         {
             StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 64; i++)
             {
                 sb.Append($"{i}:{this[i]} ");
             }
