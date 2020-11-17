@@ -10,56 +10,24 @@ namespace TightBoolTests
         public void TestValues()
         {
             TightBool mybool = new TightBool();
-
-            Assert.IsFalse(mybool[0]);
-            Assert.IsFalse(mybool[1]);
-            Assert.IsFalse(mybool[2]);
-            Assert.IsFalse(mybool[3]);
-            Assert.IsFalse(mybool[4]);
             Assert.IsFalse(mybool[5]);
-            Assert.IsFalse(mybool[6]);
-            Assert.IsFalse(mybool[7]);
+            mybool[5] = true;
+            Assert.IsTrue(mybool[5]);
 
-            mybool[0] = true;
+            LongTightBool mylongbool = new LongTightBool();
+            Assert.IsFalse(mylongbool[60]);
+            mylongbool[60] = true;
+            Assert.IsTrue(mylongbool[60]);
 
-            Assert.IsTrue(mybool[0]);
-            Assert.IsFalse(mybool[1]);
-            Assert.IsFalse(mybool[2]);
-            Assert.IsFalse(mybool[3]);
-            Assert.IsFalse(mybool[4]);
-            Assert.IsFalse(mybool[5]);
-            Assert.IsFalse(mybool[6]);
-            Assert.IsFalse(mybool[7]);
+            ShortTightBool myshortbool = new ShortTightBool();
+            Assert.IsFalse(myshortbool[13]);
+            myshortbool[13] = true;
+            Assert.IsTrue(myshortbool[13]);
 
-            mybool[2] = true;
-
-            Assert.IsTrue(mybool[0]);
-            Assert.IsFalse(mybool[1]);
-            Assert.IsTrue(mybool[2]);
-            Assert.IsFalse(mybool[3]);
-            Assert.IsFalse(mybool[4]);
-            Assert.IsFalse(mybool[5]);
-            Assert.IsFalse(mybool[6]);
-            Assert.IsFalse(mybool[7]);
-
-            mybool[0] = false;
-
-            Assert.IsFalse(mybool[0]);
-            Assert.IsFalse(mybool[1]);
-            Assert.IsTrue(mybool[2]);
-            Assert.IsFalse(mybool[3]);
-            Assert.IsFalse(mybool[4]);
-            Assert.IsFalse(mybool[5]);
-            Assert.IsFalse(mybool[6]);
-            Assert.IsFalse(mybool[7]);
-
-            LongTightBool myLongBool = new LongTightBool();
-
-            Assert.IsFalse(myLongBool[60]);
-
-            myLongBool[60] = true;
-
-            Assert.IsTrue(myLongBool[60]);
+            IntTightBool myintbool = new IntTightBool();
+            Assert.IsFalse(myintbool[29]);
+            myintbool[29] = true;
+            Assert.IsTrue(myintbool[29]);
         }
 
         [TestMethod]
