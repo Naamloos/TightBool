@@ -25,7 +25,7 @@ if(EightBools[1])
 }
 
 // Creating a new TightBool with values 3 and 7 (fourth and eighth values) to be true.
-var EightMoreBools = new TightBool(val3: true, val7: true);
+var EightMoreBools = new TightBool(3, 7);
 ```
 
 Here TightBool is interchangeable with other TightBool-related types. Here's a table listing all of them.
