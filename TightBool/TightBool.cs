@@ -5,20 +5,27 @@ using System.Text;
 namespace Naamloos
 {
     /// <summary>
-    /// A Struct that tries to store 4 true/false values in a single byte.
+    /// A Struct that tries to store 8 true/false values in a single byte.
     /// </summary>
     public struct TightBool
     {
         private byte storage;
 
         /// <summary>
-        /// Creates a new TightBool with preset values
+        /// Constructor with preset values.
         /// </summary>
-        /// <param name="val0">Value for [0].</param>
-        /// <param name="val1">Value for [1].</param>
-        /// <param name="val2">Value for [2].</param>
-        /// <param name="val3">Value for [3].</param>
-        public TightBool(bool val0 = true, bool val1 = true, bool val2 = true, bool val3 = true)
+        /// <param name="val0">First value.</param>
+        /// <param name="val1">Second value.</param>
+        /// <param name="val2">Third value.</param>
+        /// <param name="val3">Fourth value.</param>
+        /// <param name="val4">Fifth value.</param>
+        /// <param name="val5">Sixth value.</param>
+        /// <param name="val6">Seventh value.</param>
+        /// <param name="val7">Eighth value.</param>
+        public TightBool(bool val0 = false, bool val1 = false,
+            bool val2 = false, bool val3 = false, 
+            bool val4 = false, bool val5 = false, 
+            bool val6 = false, bool val7 = false)
         {
             storage = 0;
 
@@ -30,6 +37,14 @@ namespace Naamloos
                 this[2] = true;
             if (val3)
                 this[3] = true;
+            if (val4)
+                this[4] = true;
+            if (val5)
+                this[5] = true;
+            if (val6)
+                this[6] = true;
+            if (val7)
+                this[7] = true;
         }
 
         /// <summary>
@@ -39,15 +54,6 @@ namespace Naamloos
         public TightBool(byte other)
         {
             this.storage = other;
-        }
-
-        /// <summary>
-        /// Creates a TightBool with another TightBool's storage.
-        /// </summary>
-        /// <param name="other">The other TightBool to copy from.</param>
-        public TightBool(TightBool other)
-        {
-            this.storage = other.storage;
         }
 
         /// <summary>
@@ -96,7 +102,7 @@ namespace Naamloos
 
         public override string ToString()
         {
-            return $"0:{this[0]},1:{this[1]},2:{this[2]},3:{this[3]}";
+            return $"0:{this[0]},1:{this[1]},2:{this[2]},3:{this[3]},4:{this[4]},5:{this[5]},6:{this[6]},7:{this[7]}";
         }
 
         public override bool Equals(object obj)
